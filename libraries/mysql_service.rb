@@ -13,6 +13,7 @@ module MysqlCookbook
     property :package_name, String, default: lazy { default_package_name }, desired_state: false
     property :package_options, [String, nil], desired_state: false
     property :package_version, [String, nil], default: nil, desired_state: false
+    property :cookbook, String, desired_state: false, default: 'mysql'
 
     ################
     # Helper Methods

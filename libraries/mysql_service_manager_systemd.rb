@@ -33,7 +33,7 @@ module MysqlCookbook
         group 'root'
         mode '0755'
         variables(socket_file: socket_file)
-        cookbook 'mysql'
+        cookbook new_resource.cookbook
         action :create
       end
 
@@ -52,7 +52,7 @@ module MysqlCookbook
           mysql_systemd_start_pre: mysql_systemd_start_pre,
           mysql_systemd: mysql_systemd
         )
-        cookbook 'mysql'
+        cookbook new_resource.cookbook
         notifies :run, "execute[#{new_resource.instance} systemctl daemon-reload]", :immediately
         action :create
       end
@@ -75,7 +75,7 @@ module MysqlCookbook
           run_user: new_resource.run_user,
           run_group: new_resource.run_group
         )
-        cookbook 'mysql'
+        cookbook new_resource.cookbook
         action :create
       end
 

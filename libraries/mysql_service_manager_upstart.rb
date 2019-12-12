@@ -25,7 +25,7 @@ module MysqlCookbook
         group 'root'
         mode '0755'
         variables(socket_file: socket_file)
-        cookbook 'mysql'
+        cookbook new_resource.cookbook
         action :create
       end
 
@@ -41,7 +41,7 @@ module MysqlCookbook
           run_user: new_resource.run_user,
           socket_dir: new_resource.socket_dir
         )
-        cookbook 'mysql'
+        cookbook new_resource.cookbook
         action :create
       end
 

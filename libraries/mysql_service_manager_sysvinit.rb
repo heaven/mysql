@@ -29,7 +29,7 @@ module MysqlCookbook
           pid_file: new_resource.pid_file,
           scl_name: scl_name
         )
-        cookbook 'mysql'
+        cookbook new_resource.cookbook
         action :create
       end
 
